@@ -1,15 +1,15 @@
 # Snroe Utils
 
-[English](./docs/readme/README_EN.md)
+[English](./readme/README_EN.md)
 
-这是 snet 使用的 utils 工具模块
+This is a collection of utilities for snet.
 
-## 安装
+## Installation
 ```sh
 pnpm add @snroe/utils
 ```
 
-## 使用
+## Use
 ```ts
 import {freeze} from '@snroe/utils';
 
