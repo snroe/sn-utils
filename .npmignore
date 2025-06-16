@@ -16,4 +16,5 @@ npm-debug.log
 docs/
 node_modules/
 src/
+tests/
 pnpm-lock.yaml

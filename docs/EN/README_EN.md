@@ -1,14 +1,11 @@
-# Snroe Utils
-
-[English](./readme/README_EN.md)
-
+# Snet Utils
 This is a collection of utilities for snet.
 
 ## Installation
-Due to naming conflicts, it has not yet been published to npm. You can experience it by running `git clone https://github.com/efahnjoe/snet-utils.git`.
-
 ```sh
-pnpm add @snroe/utils
+pnpm add snet-utils
+npm install snet-utils
+yarn add snet-utils
 ```
 
 ## Index

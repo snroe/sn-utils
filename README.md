@@ -1,14 +1,14 @@
-# Snroe Utils
+# Snet Utils
 
 [English](./docs/readme/EN/README_EN.md)
 
 这是 snet 使用的 utils 工具模块
 
 ## 安装
-由于命名冲突，尚未发布到 npm，您可以通过 `git clone https://github.com/efahnjoe/snet-utils.git` 体验
-
 ```sh
-pnpm add @snet/utils
+pnpm add snet-utils
+npm install snet-utils
+yarn add snet-utils
 ```
 
 ## 索引
