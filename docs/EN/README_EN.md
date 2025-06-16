@@ -14,5 +14,5 @@ pnpm add @snroe/utils
 ## Index
 | Name | Description | Params |
 | :---: | :---: | :---: |
-| [deepFreeze](./docs/freeze.md) | Deep freeze an object, making it and its nested objects immutable. | object<type=object> |
-| [snoweflake](./docs/snoweflake.md) | Twitter's distributed self-incrementing ID snowflake algorithm | / |
+| [deepFreeze](./modules/freeze_en.md) | Deep freeze an object, making it and its nested objects immutable. | object<type=object> |
+| [snoweflake](./modules/snoweflake_en.md) | Twitter's distributed self-incrementing ID snowflake algorithm | / |
