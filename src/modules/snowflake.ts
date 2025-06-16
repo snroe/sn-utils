@@ -1,9 +1,9 @@
 /**
- * Twitter的分布式自增ID雪花算法
+ * Twitter的分布式自增ID雪花算法，默认开始时间：2025-01-01 00:00:00
  * @class Snowflake
  * @example
  * ```javascript
- * const sf = new Snowflake({workId: 1, datacenterId: 1})
+ * const sf = new Snowflake({workId: 1, datacenterId: 1, epoch: 1735660800000})
  * const id = sf.nextId()
  * console.log('Generated ID:', id.toString());
  * const parsed = sf.parseId(id);
@@ -30,9 +30,9 @@ export class Snowflake {
   private readonly sequenceBits: number = 12;
 
   /**
-   * 开始时间截 (2015-01-01)
+   * 开始时间截 (2025-01-01 00:00:00)
    */
-  private epoch: number = 1420070400000;
+  private epoch: number = 1735660800000;
   /**
    * 工作机器ID(0~31)
    */
@@ -81,19 +81,28 @@ export class Snowflake {
    * @param options 配置项
    * @param {Number} options.workerId 工作节点ID
    * @param {Number} options.datacenterId 数据中心ID
+   * @param {Number} options.epoch 开始时间截，默认为 2025-01-01 00:00:00
    */
-  public constructor(options: { workerId: number, datacenterId: number }) {
-    const { workerId, datacenterId } = options;
+  public constructor(options: { workerId?: number; datacenterId?: number; epoch?: number } = {}) {
+    const { workerId, datacenterId, epoch } = options;
 
-    if (workerId > this.maxWorkerId || workerId < 0) {
-      throw new Error(`worker Id can't be greater than ${this.maxWorkerId} or less than 0`);
-    }
-    if (datacenterId > this.maxDatacenterId || datacenterId < 0) {
-      throw new Error(`datacenter Id can't be greater than ${this.maxDatacenterId} or less than 0`);
+    if (workerId !== undefined) {
+      if (workerId > this.maxWorkerId || workerId < 0) {
+        throw new Error(`worker Id can't be greater than ${this.maxWorkerId} or less than 0`);
+      }
+      this.workerId = workerId;
     }
 
-    this.workerId = workerId;
-    this.datacenterId = datacenterId;
+    if (datacenterId !== undefined) {
+      if (datacenterId > this.maxDatacenterId || datacenterId < 0) {
+        throw new Error(`datacenter Id can't be greater than ${this.maxDatacenterId} or less than 0`);
+      }
+      this.datacenterId = datacenterId;
+    }
+
+    if (epoch !== undefined) {
+      this.epoch = epoch;
+    }
   }
 
   /**
