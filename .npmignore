@@ -10,5 +10,10 @@
 config.gypi
 CVS
 npm-debug.log
-.vscode/
+
 .idea/
+.vscode/
+docs/
+node_modules/
+src/
+pnpm-lock.yaml
