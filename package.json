@@ -1,6 +1,6 @@
 {
-  "name": "@snet/utils",
-  "version": "0.1.3",
+  "name": "snet-utils",
+  "version": "0.1.4",
   "author": "Snroe",
   "license": "MIT",
   "description": "",
@@ -21,7 +21,7 @@
     "build": "tsc",
     "clean": "rimraf lib node_modules/.tmp",
     "test": "pnpm run build && node ./tests/run.mjs",
-    "publish": "pnpm run clean && pnpm run build && npm publish --access public"
+    "publish": "npm publish --access public"
   },
   "packageManager": "pnpm@10.7.0",
   "engines": {
