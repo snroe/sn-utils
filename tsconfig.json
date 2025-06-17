@@ -5,7 +5,8 @@
     "tsBuildInfoFile": "./node_modules/.tmp/tsbuild/.tsbuildinfo",
     "target": "ESNext",
     "lib": [
-      "ESNext"
+      "ESNext",
+      "DOM"
     ],
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
