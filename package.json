@@ -11,9 +11,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/efahnjoe/snet-utils.git"
+    "url": "git+https://github.com/snroe/snet-utils.git"
   },
-  "bugs": "https://github.com/efahnjoe/snet-utils/issues",
+  "bugs": "https://github.com/snroe/snet-utils/issues",
   "main": "./lib/index.js",
   "type": "module",
   "types": "./lib/index.d.ts",
