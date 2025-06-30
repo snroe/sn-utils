@@ -3,7 +3,7 @@
   "version": "0.1.8",
   "author": "Snroe",
   "license": "MIT",
-  "description": "",
+  "description": "selize utils",
   "keywords": [
     "Snroe",
     "selize",
@@ -21,7 +21,7 @@
     "build": "tsc",
     "clean": "rimraf lib node_modules/.tmp",
     "test": "pnpm run build && pnpm ./tests/run.test.mjs",
-    "publish": "pnpm publish --access public"
+    "publish": "npm publish --access public"
   },
   "packageManager": "pnpm@10.7.0",
   "engines": {
