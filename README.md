@@ -1,14 +1,14 @@
-# Snet Utils
+# Selize Utils
 
 [English](./docs/readme/EN/README_EN.md)
 
-这是 snet 使用的 utils 工具模块
+这是 selize 使用的 utils 工具模块
 
 ## 安装
 ```sh
-pnpm add snet-utils
-npm install snet-utils
-yarn add snet-utils
+pnpm add selize-utils
+npm install selize-utils
+yarn add selize-utils
 ```
 
 ## 索引

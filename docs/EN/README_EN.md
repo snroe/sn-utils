@@ -1,11 +1,11 @@
-# Snet Utils
-This is a collection of utilities for snet.
+# Selize Utils
+This is a collection of utilities for selize.
 
 ## Installation
 ```sh
-pnpm add snet-utils
-npm install snet-utils
-yarn add snet-utils
+pnpm add selize-utils
+npm install selize-utils
+yarn add selize-utils
 ```
 
 ## Index

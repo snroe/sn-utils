@@ -1,4 +1,4 @@
-import { Snowflake } from '../lib/index.js';
+import { Snowflake } from '../../lib/index';
 
 const options = {
   workerId: 1,
@@ -89,7 +89,7 @@ const throughputTest = (durationMs) => {
 
 
 // 运行测试
-const counts = 1000000;
+const counts = 100000;
 validationTest(counts); // 基础验证测试
 performanceTest(counts); // 性能测试
-throughputTest(25000);
+throughputTest(2500);

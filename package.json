@@ -1,31 +1,31 @@
 {
-  "name": "snet-utils",
+  "name": "@selize/utils",
   "version": "0.1.8",
   "author": "Snroe",
   "license": "MIT",
   "description": "",
   "keywords": [
     "Snroe",
-    "snet",
+    "selize",
     "utils"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/snroe/snet-utils.git"
+    "url": "git+https://github.com/snroe/selize-utils.git"
   },
-  "bugs": "https://github.com/snroe/snet-utils/issues",
+  "bugs": "https://github.com/snroe/selize-utils/issues",
   "main": "./lib/index.js",
   "type": "module",
   "types": "./lib/index.d.ts",
   "scripts": {
     "build": "tsc",
     "clean": "rimraf lib node_modules/.tmp",
-    "test": "pnpm run build && node ./tests/run.mjs",
-    "publish": "npm publish --access public"
+    "test": "pnpm run build && pnpm ./tests/run.test.mjs",
+    "publish": "pnpm publish --access public"
   },
   "packageManager": "pnpm@10.7.0",
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=20"
   },
   "dependencies": {
     "dayjs": "^1.11.13",
@@ -36,10 +36,7 @@
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.4",
-    "@types/node": "^24.0.3",
-    "jsdoc": "^4.0.4",
-    "ts-node": "^10.9.2",
     "tslib": "^2.8.1",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.3"
   }
 }

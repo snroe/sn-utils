@@ -4,10 +4,10 @@ import os from 'os';
 import { exec } from 'child_process';
 
 const rootDir = process.cwd();
-const testsDir = join(rootDir, 'tests');
+const testsDir = join(rootDir, 'tests/modules');
 
 // 获取所有测试文件，并排除 run.mjs
-const testsList = fs.readdirSync(testsDir).filter((test) => test !== "run.mjs");
+const testsList = fs.readdirSync(testsDir).filter((test) => test !== "run.test.ts");
 
 // 获取系统基本信息
 const systemInfo = {
@@ -19,8 +19,6 @@ const systemInfo = {
   "空闲内存（以MB为单位）": Math.round(os.freemem() / (1024 * 1024)),
   "主机名": os.hostname(),
   "平台": os.platform(),
-  // "临时文件目录": os.tmpdir(),
-  "网络接口": os.networkInterfaces()
 };
 
 console.log("系统基础信息：");
@@ -30,7 +28,7 @@ async function runTestsSequentially(tests, index = 0) {
   if (index >= tests.length) return;
 
   const test = tests[index];
-  const command = `node ${join(testsDir, test)}`;
+  const command = `bun ${join(testsDir, test)}`;
 
   console.log(`正在执行：${command}`);
 
