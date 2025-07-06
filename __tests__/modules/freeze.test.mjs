@@ -1,4 +1,4 @@
-import { deepFreeze } from '../../lib/index';
+import { deepFreeze } from '../../lib/index.js';
 
 const obj = deepFreeze({
   a: 1,

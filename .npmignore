@@ -11,11 +11,12 @@ config.gypi
 CVS
 npm-debug.log
 
+__tests__/
 .github/
 .idea/
 .vscode/
 docs/
 node_modules/
 src/
-tests/
 pnpm-lock.yaml
+tsconfig.json

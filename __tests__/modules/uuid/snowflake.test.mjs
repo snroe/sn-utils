@@ -1,4 +1,4 @@
-import { Snowflake } from '../../lib/index';
+import { Snowflake } from '../../../lib/index.js';
 
 const options = {
   workerId: 1,

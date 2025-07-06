@@ -1,13 +1,10 @@
 import fs from 'fs-extra';
-import { join } from 'path';
+import { join, extname, basename } from 'path';
 import os from 'os';
 import { exec } from 'child_process';
 
 const rootDir = process.cwd();
 const testsDir = join(rootDir, '__tests__/modules');
-
-// 获取所有测试文件，并排除 run.mjs
-const testsList = fs.readdirSync(testsDir).filter((test) => test !== "run.test.ts");
 
 // 获取系统基本信息
 const systemInfo = {
@@ -24,34 +21,70 @@ const systemInfo = {
 console.log("系统基础信息：");
 console.log(systemInfo);
 
-async function runTestsSequentially(tests, index = 0) {
-  if (index >= tests.length) return;
+/**
+ * 递归获取所有 .test.mjs 测试文件路径
+ */
+async function getAllTestFiles(dir) {
+  const files = await fs.readdir(dir);
+  let testFiles = [];
 
-  const test = tests[index];
-  const command = `bun ${join(testsDir, test)}`;
+  for (const file of files) {
+    const fullPath = join(dir, file);
+    const stats = await fs.stat(fullPath);
 
-  console.log(`正在执行：${command}`);
+    if (stats.isDirectory()) {
+      const nestedTests = await getAllTestFiles(fullPath); // 递归进入子目录
+      testFiles = testFiles.concat(nestedTests);
+    } else if (extname(file) === '.mjs' && file.endsWith('.test.mjs')) {
+      testFiles.push(fullPath);
+    }
+  }
 
-  return new Promise((resolve) => {
-    exec(command, (error, stdout, stderr) => {
-      if (error) {
-        console.error(`❌ 测试失败：${test}`);
-        console.error(`错误信息：${error.message}`);
-      }
-
-      if (stderr) {
-        console.warn(`⚠️ stderr: ${stderr}`);
-      }
-
-      if (stdout) {
-        console.log(`✅ stdout: ${stdout}`);
-      }
-
-      resolve();
-    });
-  }).then(() => runTestsSequentially(tests, index + 1));
+  return testFiles;
 }
 
-// 调用串行执行
-runTestsSequentially(testsList);
+/**
+ * 串行运行测试
+ */
+async function runTestsSequentially(testFiles) {
+  for (let i = 0; i < testFiles.length; i++) {
+    const testFile = testFiles[i];
+    const command = `node ${testFile}`;
 
+    console.log(`正在执行：${command}`);
+
+    try {
+      const stdout = await new Promise((resolve, reject) => {
+        exec(command, (error, stdout, stderr) => {
+          if (error) {
+            return reject({ error, stderr });
+          }
+          if (stderr) {
+            console.warn(`⚠️ stderr: ${stderr}`);
+          }
+          resolve(stdout);
+        });
+      });
+
+      console.log(`✅ stdout: ${stdout}`);
+    } catch (e) {
+      console.error(`❌ 测试失败：${basename(testFile)}`);
+      console.error(`错误信息：${e.error.message}`);
+      if (e.stderr) {
+        console.error(`详细错误：${e.stderr}`);
+      }
+    }
+  }
+}
+
+// 启动脚本
+(async () => {
+  const testFiles = await getAllTestFiles(testsDir);
+  if (testFiles.length === 0) {
+    console.warn('⚠️ 未找到任何测试文件');
+    return;
+  }
+
+  console.log(`\n🔍 共找到 ${testFiles.length} 个测试文件`);
+  await runTestsSequentially(testFiles);
+})();
