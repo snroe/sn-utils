@@ -18,5 +18,7 @@ __tests__/
 docs/
 node_modules/
 src/
+.npmrc
+bun.lock
 pnpm-lock.yaml
 tsconfig.json
