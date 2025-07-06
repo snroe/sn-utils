@@ -1,6 +1,6 @@
 {
   "name": "@selize/utils",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "author": "Snroe",
   "license": "MIT",
   "description": "selize utils",
@@ -20,7 +20,7 @@
   "scripts": {
     "build": "tsc",
     "clean": "rimraf lib node_modules/.tmp",
-    "test": "pnpm run build && pnpm ./tests/run.test.mjs",
+    "test": "pnpm run clean && pnpm run build && node ./__tests__/run.test.mjs",
     "publish": "npm publish --access public"
   },
   "packageManager": "pnpm@10.7.0",
