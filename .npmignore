@@ -19,7 +19,8 @@ docs/
 node_modules/
 src/
 .npmrc
-build.mjs
+build.ts
 bun.lock
 bunfig.toml
+docs.ts
 tsconfig.json
