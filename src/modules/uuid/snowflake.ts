@@ -2,7 +2,7 @@
  * Twitter的分布式自增ID雪花算法，默认开始时间：2025-01-01 00:00:00
  * @class Snowflake
  * @example
- * ```javascript
+ * ```ts
  * const sf = new Snowflake({workId: 1, datacenterId: 1, epoch: 1735660800000})
  * const id = sf.nextId()
  * console.log('Generated ID:', id.toString());
