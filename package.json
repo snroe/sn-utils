@@ -18,11 +18,13 @@
   "type": "module",
   "types": "./lib/index.d.ts",
   "scripts": {
-    "build": "rimraf lib && bun run check && bun run -c=bunfig.toml build.mjs && bun run build:type",
+    "build": "rimraf lib && bun run check && bun run -c=bunfig.toml build.ts && bun run build:type",
     "build:type": "tsc --emitDeclarationOnly --outDir lib",
     "check": "tsc --noEmit",
     "clean": "rimraf lib node_modules/.tmp",
     "test": "bun run check && bun test --dir __tests__",
+    "docs": "bun run -c=bunfig.toml docs.ts",
+    "release": "standard-version --commit-message",
     "publish": "npm publish --access public"
   },
   "engines": {
@@ -30,13 +32,17 @@
     "bun": ">=1.0.0"
   },
   "dependencies": {
-    "@types/node": "^24.0.10",
     "fs-extra": "^11.3.0",
     "rimraf": "^6.0.1"
   },
   "devDependencies": {
     "@types/bun": "^1.2.18",
     "@types/fs-extra": "^11.0.4",
+    "@types/node": "^24.0.13",
+    "standard-version": "^9.5.0",
+    "typedoc": "^0.28.7"
+  },
+  "peerDependencies": {
     "typescript": "^5.8.3"
   }
 }
