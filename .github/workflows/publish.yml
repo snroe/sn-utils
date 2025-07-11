@@ -26,9 +26,10 @@ jobs:
       
       - name: Install pnpm
         uses: pnpm/action-setup@v4
-        
-      - run: pnpm install
-      - run: pnpm build
+      - run: | 
+          npm install -g pnpm
+          pnpm install
+          pnpm build
 
       - name: Publish to NPM
         id: publish
