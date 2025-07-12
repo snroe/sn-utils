@@ -10,7 +10,7 @@ type ContentHashCache = Map<string, string>; // 路径 => 内容哈希
 
 /**
  * 增量哈希计算
- * @description 适用于目录结构不变，文件内容有变更的场景
+ * 适用于目录结构不变，文件内容有变更的场景
  */
 export class IncrementalHasher {
   private cache: DirHashCache;

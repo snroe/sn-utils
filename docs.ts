@@ -1,6 +1,7 @@
 import * as td from "typedoc";
 import fs from "fs-extra";
 import path from "path";
+import { MarkdownApplication } from 'typedoc-plugin-markdown';
 
 function getTsFiles(dir: string): string[] {
   const result: string[] = [];
@@ -11,13 +12,12 @@ function getTsFiles(dir: string): string[] {
     const stat = fs.statSync(fullPath);
 
     if (stat.isDirectory()) {
-      // 递归处理子目录并合并结果
       const subFiles = getTsFiles(fullPath);
       result.push(...subFiles);
     } else if (
       file.endsWith(".ts") &&
       !file.endsWith(".d.ts") &&
-      file !== "index.ts" // 可选排除 index.ts
+      file !== "index.ts"
     ) {
       result.push(path.relative(process.cwd(), fullPath));
     }
@@ -33,39 +33,37 @@ if (entryPoints.length === 0) {
   process.exit(1);
 }
 
-async function generateDocs(lang: "en" | "zh", outDir: string) {
+async function generateDocs(outDir: string) {
   const entryPoints = getTsFiles("src");
-
-  if (entryPoints.length === 0) {
-    console.error(`No .ts files found for ${lang}.`);
-    return;
-  }
 
   const app = await td.Application.bootstrapWithPlugins({
     entryPoints,
     out: outDir,
-    // plugin: [
-    //   "typedoc-plugin-md"
-    // ],
-    excludePrivate: true,
+    excludePrivate: false,
     includeVersion: true,
-    cleanOutputDir: true,
+    customFooterHtml: `Copyright <strong>Snroe</strong> 2024`,
+    cleanOutputDir: false,
     readme: "README.md",
+    githubPages: true,
+    plugin: [
+      "typedoc-plugin-markdown"
+    ],
+    // logLevel: "Verbose",
   });
 
   const project = await app.convert();
   if (!project) {
-    console.error(`Failed to convert project for ${lang}.`);
+    console.error(`Failed to convert project`);
     return;
   }
 
   await app.generateDocs(project, outDir);
-  console.log(`✅ ${lang.toUpperCase()} 文档已生成至 ${outDir}`);
+
+  console.log(`Documents generate in ${outDir}`);
 }
 
 async function main() {
-  // await generateDocs("en", "docs/en/modules");
-  await generateDocs("zh", "docs/");
+  await generateDocs("docs/");
 }
 
 main().catch(console.error);

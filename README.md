@@ -7,3 +7,7 @@ pnpm add selize-utils
 npm install selize-utils
 yarn add selize-utils
 ```
+
+## Docs
+
+see - [docs](https://utils.selize.snroe.com)

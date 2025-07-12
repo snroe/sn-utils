@@ -3,12 +3,13 @@
   "version": "0.1.16",
   "author": "Snroe",
   "license": "MIT",
-  "description": "selize utils",
+  "description": "This is a collection of utilities for selize",
   "keywords": [
     "Snroe",
     "selize",
     "utils"
   ],
+  "homepage": "https://utils.selize.snroe.com",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/snroe/selize-utils.git"
@@ -23,7 +24,8 @@
     "check": "tsc --noEmit",
     "clean": "rimraf lib node_modules/.tmp",
     "test": "bun run check && bun test --dir __tests__",
-    "docs": "bun run -c=bunfig.toml docs.ts",
+    "docs:html": "bun run -c=bunfig.toml docs.ts",
+    "docs:md": "typedoc --plugin typedoc-plugin-markdown --out docs src",
     "release": "standard-version --commit-message",
     "publish": "npm publish --access public"
   },
@@ -39,8 +41,10 @@
     "@types/bun": "^1.2.18",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^24.0.13",
+    "prettier": "^3.6.2",
     "standard-version": "^9.5.0",
-    "typedoc": "^0.28.7"
+    "typedoc": "^0.28.7",
+    "typedoc-plugin-markdown": "^4.7.0"
   },
   "peerDependencies": {
     "typescript": "^5.8.3"
