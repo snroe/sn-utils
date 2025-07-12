@@ -41,13 +41,11 @@ async function generateDocs(outDir: string) {
     out: outDir,
     excludePrivate: false,
     includeVersion: true,
-    customFooterHtml: `Copyright <strong>Snroe</strong> 2024`,
+    customFooterHtml: `
+    Copyright <strong><a href="https://snroe.com">Snroe</a></strong> 2025 | <a href="https://github.com/snroe">GitHub</a>`,
     cleanOutputDir: false,
     readme: "README.md",
     githubPages: true,
-    plugin: [
-      "typedoc-plugin-markdown"
-    ],
     // logLevel: "Verbose",
   });
 
@@ -63,7 +61,10 @@ async function generateDocs(outDir: string) {
 }
 
 async function main() {
-  await generateDocs("docs/");
+  await generateDocs("pages/");
 }
 
-main().catch(console.error);
+main().catch(error => {
+  console.error(error);
+  process.exit(1);
+});

@@ -17,10 +17,12 @@ __tests__/
 .vscode/
 docs/
 node_modules/
+pages/
 src/
 .npmrc
 build.ts
 bun.lock
 bunfig.toml
+CHANGELOG.md
 docs.ts
 tsconfig.json
