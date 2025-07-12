@@ -1,4 +1,4 @@
-[**@selize/utils**](../README.md)
+[**@selize/utils v0.1.16**](../README.md)
 
 ***
 
@@ -8,7 +8,7 @@
 
 > **hashDir**(`dirPath`, `options`): `Promise`\<`string`\>
 
-Defined in: [hash/hashDir.ts:11](https://github.com/snroe/snet-utils/blob/6cea2672a78937294da7b51c0554e97f19e795fe/src/modules/hash/hashDir.ts#L11)
+Defined in: [hash/hashDir.ts:11](https://github.com/snroe/snet-utils/blob/main/src/modules/hash/hashDir.ts#L11)
 
 递归计算整个目录的哈希
 

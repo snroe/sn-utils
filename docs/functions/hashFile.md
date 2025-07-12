@@ -1,4 +1,4 @@
-[**@selize/utils**](../README.md)
+[**@selize/utils v0.1.16**](../README.md)
 
 ***
 
@@ -8,7 +8,7 @@
 
 > **hashFile**(`filePath`, `algorithm`): `Promise`\<`string`\>
 
-Defined in: [hash/hashFile.ts:11](https://github.com/snroe/snet-utils/blob/6cea2672a78937294da7b51c0554e97f19e795fe/src/modules/hash/hashFile.ts#L11)
+Defined in: [hash/hashFile.ts:11](https://github.com/snroe/snet-utils/blob/main/src/modules/hash/hashFile.ts#L11)
 
 计算单个文件的哈希
 

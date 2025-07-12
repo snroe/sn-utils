@@ -4,9 +4,9 @@ import { createHash } from 'node:crypto';
 import { hashFile } from './hashFile.js';
 
 // 类型定义
-type DirHashCache = Map<string, string>; // 路径 => 哈希
-type MTimeCache = Map<string, number>;  // 路径 => 修改时间戳
-type ContentHashCache = Map<string, string>; // 路径 => 内容哈希
+export type DirHashCache = Map<string, string>; // 路径 => 哈希
+export type MTimeCache = Map<string, number>;  // 路径 => 修改时间戳
+export type ContentHashCache = Map<string, string>; // 路径 => 内容哈希
 
 /**
  * 增量哈希计算

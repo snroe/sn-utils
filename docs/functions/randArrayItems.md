@@ -1,4 +1,4 @@
-[**@selize/utils**](../README.md)
+[**@selize/utils v0.1.16**](../README.md)
 
 ***
 
@@ -8,7 +8,7 @@
 
 > **randArrayItems**\<`T`\>(`array`, `count`, `allowDuplicates`): `T`[]
 
-Defined in: [randArray.ts:8](https://github.com/snroe/snet-utils/blob/6cea2672a78937294da7b51c0554e97f19e795fe/src/modules/randArray.ts#L8)
+Defined in: [randArray.ts:8](https://github.com/snroe/snet-utils/blob/main/src/modules/randArray.ts#L8)
 
 随机返回一个或多个数组元素
 
