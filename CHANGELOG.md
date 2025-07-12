@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.17](https://github.com/snroe/selize-utils/compare/v0.1.16...v0.1.17) (2025-07-12)
+
+
+### Features
+
+* **docs:** Generate sitemaps and metadata ([28e351e](https://github.com/snroe/selize-utils/commit/28e351efa816e4ba580638c98c97a3136d5aa8c1))
+
 ### [0.1.16](https://github.com/snroe/selize-utils/compare/v0.1.8...v0.1.16) (2025-07-11)
 
 
