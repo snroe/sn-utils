@@ -25,7 +25,7 @@
     "clean": "rimraf lib node_modules/.tmp",
     "test": "bun run check && bun test --dir __tests__",
     "docs:html": "bun run -c=bunfig.toml docs.ts",
-    "docs:md": "typedoc --plugin typedoc-plugin-markdown --out docs src",
+    "docs:md": "typedoc --includeVersion --excludePrivate false --githubPages --gitRevision main --plugin typedoc-plugin-markdown --out docs src",
     "release": "standard-version --commit-message",
     "publish": "npm publish --access public"
   },

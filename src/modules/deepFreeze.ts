@@ -1,36 +1,61 @@
 /**
- * 深度冻结一个对象，使其及其嵌套对象不可变
+ * Deep freeze an object, making it and its nested objects immutable.
  * 
- * @param {T} obj - 要深度冻结的对象，期望是一个键值对对象，键为字符串，值为任意
- * @returns {Readonly<T>} 返回深度冻结后的对象，保持相同的类型
+ * @param {T} obj The object to be deeply frozen is expected to be a key-value pair object,
+ *                where the keys are strings and the values can be anything.
+ * @returns {Readonly<T>} Return the object after deep freezing, keeping the same type.
+ * @remarks This function performs a deep freeze on the object and all its nested properties.
+ *          It also mutates the original object (frozen in place).
+ * @example
+ * ```ts
+ * import { deepFreeze } from '@selize/utils';
+ *
+ * const obj = { a: 1, b: { c: 2 } };
+ * const frozen = deepFreeze(obj);
+ * console.log("frozen: ", frozen);
+ * // Output:
+ * // {
+ * //   a: 1,
+ * //   b: {
+ * //     c: 2
+ * //   }
+ *
+ * obj.a = 2;
+ * // Output:
+ * // TypeError: Cannot assign to read only property 'a' of object '#<Object>'
+ * ```
+ * @see https://utils.selize.snroe.com/functions/deepfreeze.deepfreeze
  */
 export const deepFreeze = <T>(obj: T): Readonly<T> => {
-  // 防御非对象输入
+  // Defense against non-object input
   if (typeof obj !== 'object' || obj === null) return obj;
 
-  // 使用 WeakSet 记录已处理的对象，避免重复处理
+  // Use WeakSet to keep track of processed objects to avoid duplicate processing.
   const memo = new WeakSet();
 
   /**
-   * 使用深度优先搜索（DFS）算法递归地冻结当前对象及其所有嵌套对象
-   * 这个函数的目的是确保对象及其嵌套对象不可变，即使它们之前没有被冻结
+   * Recursively freeze the current object and all its nested objects using the Depth First Search (DFS) algorithm.
    * 
-   * @param current 当前要处理的对象这个参数的类型被声明为 any，因为在此上下文中，对象可以是任何类型
+   * The purpose of this function is to ensure that the object and its nested objects are immutable,
+   * even if they were not frozen before.
+   * 
+   * @param current The type of the object currently being processed is declared as any,
+   *                because in this context, the object can be of any type.
    */
   const dfs = (current: any): void => {
-    // 检查当前对象是否已经被处理过，以避免重复处理
+    // Check whether the current object has already been processed to avoid duplicate processing.
     if (memo.has(current)) return;
     memo.add(current);
 
-    // 冻结当前对象，使其不可变
+    // Freeze the current object to make it immutable.
     Object.freeze(current);
 
-    // 遍历当前对象的所有属性
+    // Traverse all properties of the current object
     for (const key in current) {
-      // 确保属性是对象自身的属性，而不是原型链上的属性
+      // Ensure that the property is a property of the object itself, not a property on the prototype chain.
       if (Object.prototype.hasOwnProperty.call(current, key)) {
         const value = current[key];
-        // 如果属性值是对象（且不为空），则递归调用 dfs 函数
+        // If the attribute value is an object (and not empty), then recursively call the dfs function.
         if (typeof value === 'object' && value !== null) {
           dfs(value);
         }

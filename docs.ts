@@ -1,7 +1,6 @@
 import * as td from "typedoc";
 import fs from "fs-extra";
 import path from "path";
-import { MarkdownApplication } from 'typedoc-plugin-markdown';
 
 function getTsFiles(dir: string): string[] {
   const result: string[] = [];
@@ -41,11 +40,11 @@ async function generateDocs(outDir: string) {
     out: outDir,
     excludePrivate: false,
     includeVersion: true,
-    customFooterHtml: `
-    Copyright <strong><a href="https://snroe.com">Snroe</a></strong> 2025 | <a href="https://github.com/snroe">GitHub</a>`,
+    customFooterHtml: `Copyright <strong><a href="https://snroe.com">Snroe</a></strong> 2025 | <a href="https://github.com/snroe">GitHub</a>`,
     cleanOutputDir: false,
     readme: "README.md",
-    githubPages: true,
+    gitRevision: "main",
+    githubPages: false,
     // logLevel: "Verbose",
   });
 
