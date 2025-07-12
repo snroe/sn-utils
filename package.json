@@ -7,7 +7,10 @@
   "keywords": [
     "Snroe",
     "selize",
-    "utils"
+    "utils",
+    "typescript",
+    "selize-utils",
+    "bun"
   ],
   "homepage": "https://utils.selize.snroe.com",
   "repository": {
@@ -34,6 +37,7 @@
     "bun": ">=1.0.0"
   },
   "dependencies": {
+    "fast-glob": "^3.3.3",
     "fs-extra": "^11.3.0",
     "rimraf": "^6.0.1"
   },
@@ -41,10 +45,11 @@
     "@types/bun": "^1.2.18",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^24.0.13",
-    "prettier": "^3.6.2",
+    "cheerio": "^1.1.0",
     "standard-version": "^9.5.0",
     "typedoc": "^0.28.7",
-    "typedoc-plugin-markdown": "^4.7.0"
+    "typedoc-plugin-markdown": "^4.7.0",
+    "xmlbuilder2": "^3.1.1"
   },
   "peerDependencies": {
     "typescript": "^5.8.3"
