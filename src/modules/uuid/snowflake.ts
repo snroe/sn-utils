@@ -1,5 +1,5 @@
 /**
- * Twitter's distributed auto-increment ID snowflake algorithm,
+ * Twitter's distributed auto-increment ID snowflake algorithm({@link https://github.com/twitter/snowflake}),
  * 
  * default start time: 
  * 
@@ -25,68 +25,67 @@
  * ```
  *
  * @see https://utils.selize.snroe.com/classes/uuid_snowflake.Snowflake.html
-
  */
 export class Snowflake {
   private readonly totalBits: BigInt = BigInt(64);
   private readonly MAX_UINT64 = 0xFFFFFFFFFFFFFFFFn;
   /**
-   * 机器id所占的位数
+   * The number of bits occupied by the machine ID
    */
   private readonly workerIdBits: number = 5;
   /**
-   * 数据标识id所占的位数
+   * The number of bits occupied by the data identifier ID
    */
   private readonly datacenterIdBits: number = 5;
   /**
-   * 序列在id中占的位数
+   * The number of digits occupied by the sequence in the ID
    */
   private readonly sequenceBits: number = 12;
 
   /**
-   * 开始时间截 (2025-01-01 00:00:00)
+   * Start time cut-off (2025-01-01 00:00:00)
    */
   private epoch: number = 1735660800000;
   /**
-   * 工作机器ID(0~31)
+   * Work machine ID (0~31)
    */
   private workerId: number = 1;
   /**
-   * 数据中心ID(0~31)
+   * Data center ID (0~31)
    */
   private datacenterId: number = 1;
   /**
-   * 毫秒内序列(0~4095)
+   * Millisecond sequence (0~4095)
    */
   private sequence: number = 0;
   /**
-   * 上次生成ID的时间截
+   * The timestamp of the last generated ID
    */
   private lastTimestamp: number = -1;
 
   /**
-   * 支持的最大机器id
+   * Maximum supported machine ID
    */
   private readonly maxWorkerId: number = ~(-1 << this.workerIdBits);
   /**
-   * 支持的最大数据标识id
+   * The maximum supported data identifier ID
    */
   private readonly maxDatacenterId: number = ~(-1 << this.datacenterIdBits);
 
   /**
-   * 机器ID向左移12位
+   * The machine ID shifts left by 12 bits.
    */
   private readonly workerIdShift: number = this.sequenceBits;
   /**
-   * 数据标识id向左移17位(12+5)
+   * The data identification ID is shifted left by 17 bits (12+5).
    */
   private readonly datacenterIdShift: number = this.sequenceBits + this.workerIdBits;
   /**
-   * 时间截向左移22位(5+5+12)
+   * The time is shifted left by 22 bits (5+5+12)
    */
   private readonly timestampLeftShift: number = this.sequenceBits + this.workerIdBits + this.datacenterIdBits;
   /**
-   * 生成序列的掩码，这里为4095 (0b111111111111=0xfff=4095)
+   * Generate a mask for the sequence, here it is 4095 (0b111111111111=0xfff=4095)
    */
   private readonly sequenceMask: number = ~(-1 << this.sequenceBits);
 
@@ -175,6 +174,7 @@ export class Snowflake {
    * ```ts
    * const uuid = (69715707826409472n).toBigInt();
    * const parsed = snowflake.parseId(uuid);
+   * 
    * console.log('Parsed ID:', parsed);
    * // Parsed ID:
    * // {
