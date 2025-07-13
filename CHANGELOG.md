@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.0.0 (2025-07-13)
+
+
+### Features
+
+* **docs:** Generate sitemaps and metadata ([25fa849](https://github.com/snroe/selize-utils/commit/25fa8498e64bfa9248a25f8cadca31af0c9cf72f))
+* **hash:** 实现增量哈希计算 ([73d616e](https://github.com/snroe/selize-utils/commit/73d616ed6ab4905f5dc6e97b388786bad06d25bf))
+* **hash:** 重构哈希模块并添加增量哈希功能 ([9d05b6e](https://github.com/snroe/selize-utils/commit/9d05b6ed97de70f6c8060e050a8b3dc67aff44cd))
+* **randArray:** 优化函数以支持返回多个数组元素 ([e4beb0a](https://github.com/snroe/selize-utils/commit/e4beb0a5fdae6b75148303b28064a30e4572df1f))
+* **snowflake:** 优化 Snowflake 类并添加 Snowflake 吞吐量测试 ([f3beb73](https://github.com/snroe/selize-utils/commit/f3beb73665b5773755a2e1031fdbeef408c5fbde))
+* **utils:** 新增 Snowflake 算法实现 ([584589a](https://github.com/snroe/selize-utils/commit/584589abfb4f60d42c0a1c5dfb0d0db749bc3b44))
+* **utils:** 添加文件哈希计算功能并调整文档结构 ([4c57660](https://github.com/snroe/selize-utils/commit/4c57660fb02469c51d6b49ff8eaf3ce6417a83d8))
+
+
+### Bug Fixes
+
+* **setTimeout:** 修复 setTimeout 函数在打包时不成功的问题 ([7c1d718](https://github.com/snroe/selize-utils/commit/7c1d7186c4ac922532e4fa704e245d2b6c2a1e32))
+
 ### [0.1.17](https://github.com/snroe/selize-utils/compare/v0.1.16...v0.1.17) (2025-07-12)
 
 
