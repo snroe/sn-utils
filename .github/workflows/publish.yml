@@ -1,11 +1,8 @@
 name: Publish Package to npmjs
 on:
   push:
-    branches:
-      - main
-    paths:
-      - "src/**"
-      - "package.json"
+    tags:
+      - 'v*'
 
 jobs:
   build_and_publish:

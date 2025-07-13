@@ -28,9 +28,10 @@
     "clean": "rimraf lib node_modules/.tmp",
     "test": "bun run check && bun test --dir __tests__",
     "docs:html": "bun run -c=bunfig.toml docs.ts",
-    "docs:md": "typedoc --includeVersion --excludePrivate false --githubPages --gitRevision main --plugin typedoc-plugin-markdown --out docs src",
-    "release": "standard-version --commit-message",
-    "publish": "npm publish --access public"
+    "docs:md": "typedoc --excludePrivate false --githubPages --gitRevision main --plugin typedoc-plugin-markdown --out docs src",
+    "publish": "npm publish --access public",
+    "prepare": "husky",
+    "commit": "commit"
   },
   "engines": {
     "node": ">=20.0.0",
@@ -42,11 +43,15 @@
     "rimraf": "^6.0.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-angular": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@commitlint/prompt-cli": "^19.8.1",
     "@types/bun": "^1.2.18",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^24.0.13",
     "cheerio": "^1.1.0",
-    "standard-version": "^9.5.0",
+    "husky": "^9.1.7",
     "typedoc": "^0.28.7",
     "typedoc-plugin-markdown": "^4.7.0",
     "xmlbuilder2": "^3.1.1"
