@@ -5,15 +5,13 @@ import fg from 'fast-glob';
 import * as cheerio from 'cheerio';
 import { create } from 'xmlbuilder2';
 
-const entryPoints = fg.sync('pages/**/*.html');
-
-if (entryPoints.length === 0) {
-  console.error("No .ts files found.");
-  process.exit(1);
-}
-
 async function generateDocs(outDir: string) {
   const entryPoints = fg.sync(['src/**/*.ts', '!src/**/index.ts']);
+
+  if (entryPoints.length === 0) {
+    console.error(`No entry points found`);
+    process.exit(1);
+  }
 
   const app = await td.Application.bootstrapWithPlugins({
     entryPoints,
@@ -41,6 +39,11 @@ async function generateDocs(outDir: string) {
 
 async function generateMetadata() {
   const files = fg.sync('pages/**/*.html');
+
+  if (files.length === 0) {
+    console.error(`No HTML files found`);
+    process.exit(1);
+  }
 
   files.forEach((filePath) => {
     let html = fs.readFileSync(filePath, 'utf-8');
