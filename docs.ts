@@ -56,6 +56,7 @@ async function generateMetadata() {
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://utils.selize.snroe.com/">
     <meta property="og:image" content="https://utils.selize.snroe.com/logo.png">
+    <meta name="msvalidate.01" content="AE12E1114EA1770609E5011A0D98F0CF" />
     `;
     const jsonLd = `<script type="application/ld+json">{"@context": "https://schema.org","@type": "WebSite","name": "Documentation for @selize/utils","url": "https://utils.selize.snroe.com/"}</script>`;
 

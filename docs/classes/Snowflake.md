@@ -1,4 +1,4 @@
-[**@selize/utils v0.1.16**](../README.md)
+[**@selize/utils**](../README.md)
 
 ***
 
@@ -6,9 +6,9 @@
 
 # Class: Snowflake
 
-Defined in: [uuid/snowflake.ts:30](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L30)
+Defined in: [uuid/snowflake.ts:29](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L29)
 
-Twitter's distributed auto-increment ID snowflake algorithm,
+Twitter's distributed auto-increment ID snowflake algorithm([https://github.com/twitter/snowflake](https://github.com/twitter/snowflake)),
 
 default start time: 
 
@@ -45,7 +45,7 @@ https://utils.selize.snroe.com/classes/uuid_snowflake.Snowflake.html
 
 > **new Snowflake**(`options`): `Snowflake`
 
-Defined in: [uuid/snowflake.ts:100](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L100)
+Defined in: [uuid/snowflake.ts:99](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L99)
 
 Constructor
 
@@ -83,9 +83,9 @@ Work Node ID
 
 > `private` **datacenterId**: `number` = `1`
 
-Defined in: [uuid/snowflake.ts:57](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L57)
+Defined in: [uuid/snowflake.ts:56](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L56)
 
-数据中心ID(0~31)
+Data center ID (0~31)
 
 ***
 
@@ -93,9 +93,9 @@ Defined in: [uuid/snowflake.ts:57](https://github.com/snroe/snet-utils/blob/main
 
 > `private` `readonly` **datacenterIdBits**: `number` = `5`
 
-Defined in: [uuid/snowflake.ts:40](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L40)
+Defined in: [uuid/snowflake.ts:39](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L39)
 
-数据标识id所占的位数
+The number of bits occupied by the data identifier ID
 
 ***
 
@@ -103,9 +103,9 @@ Defined in: [uuid/snowflake.ts:40](https://github.com/snroe/snet-utils/blob/main
 
 > `private` `readonly` **datacenterIdShift**: `number`
 
-Defined in: [uuid/snowflake.ts:83](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L83)
+Defined in: [uuid/snowflake.ts:82](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L82)
 
-数据标识id向左移17位(12+5)
+The data identification ID is shifted left by 17 bits (12+5).
 
 ***
 
@@ -113,9 +113,9 @@ Defined in: [uuid/snowflake.ts:83](https://github.com/snroe/snet-utils/blob/main
 
 > `private` **epoch**: `number` = `1735660800000`
 
-Defined in: [uuid/snowflake.ts:49](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L49)
+Defined in: [uuid/snowflake.ts:48](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L48)
 
-开始时间截 (2025-01-01 00:00:00)
+Start time cut-off (2025-01-01 00:00:00)
 
 ***
 
@@ -123,9 +123,9 @@ Defined in: [uuid/snowflake.ts:49](https://github.com/snroe/snet-utils/blob/main
 
 > `private` **lastTimestamp**: `number` = `-1`
 
-Defined in: [uuid/snowflake.ts:65](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L65)
+Defined in: [uuid/snowflake.ts:64](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L64)
 
-上次生成ID的时间截
+The timestamp of the last generated ID
 
 ***
 
@@ -133,7 +133,7 @@ Defined in: [uuid/snowflake.ts:65](https://github.com/snroe/snet-utils/blob/main
 
 > `private` `readonly` **MAX\_UINT64**: `18446744073709551615n` = `0xFFFFFFFFFFFFFFFFn`
 
-Defined in: [uuid/snowflake.ts:32](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L32)
+Defined in: [uuid/snowflake.ts:31](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L31)
 
 ***
 
@@ -141,9 +141,9 @@ Defined in: [uuid/snowflake.ts:32](https://github.com/snroe/snet-utils/blob/main
 
 > `private` `readonly` **maxDatacenterId**: `number`
 
-Defined in: [uuid/snowflake.ts:74](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L74)
+Defined in: [uuid/snowflake.ts:73](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L73)
 
-支持的最大数据标识id
+The maximum supported data identifier ID
 
 ***
 
@@ -151,9 +151,9 @@ Defined in: [uuid/snowflake.ts:74](https://github.com/snroe/snet-utils/blob/main
 
 > `private` `readonly` **maxWorkerId**: `number`
 
-Defined in: [uuid/snowflake.ts:70](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L70)
+Defined in: [uuid/snowflake.ts:69](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L69)
 
-支持的最大机器id
+Maximum supported machine ID
 
 ***
 
@@ -161,9 +161,9 @@ Defined in: [uuid/snowflake.ts:70](https://github.com/snroe/snet-utils/blob/main
 
 > `private` **sequence**: `number` = `0`
 
-Defined in: [uuid/snowflake.ts:61](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L61)
+Defined in: [uuid/snowflake.ts:60](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L60)
 
-毫秒内序列(0~4095)
+Millisecond sequence (0~4095)
 
 ***
 
@@ -171,9 +171,9 @@ Defined in: [uuid/snowflake.ts:61](https://github.com/snroe/snet-utils/blob/main
 
 > `private` `readonly` **sequenceBits**: `number` = `12`
 
-Defined in: [uuid/snowflake.ts:44](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L44)
+Defined in: [uuid/snowflake.ts:43](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L43)
 
-序列在id中占的位数
+The number of digits occupied by the sequence in the ID
 
 ***
 
@@ -181,9 +181,9 @@ Defined in: [uuid/snowflake.ts:44](https://github.com/snroe/snet-utils/blob/main
 
 > `private` `readonly` **sequenceMask**: `number`
 
-Defined in: [uuid/snowflake.ts:91](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L91)
+Defined in: [uuid/snowflake.ts:90](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L90)
 
-生成序列的掩码，这里为4095 (0b111111111111=0xfff=4095)
+Generate a mask for the sequence, here it is 4095 (0b111111111111=0xfff=4095)
 
 ***
 
@@ -191,9 +191,9 @@ Defined in: [uuid/snowflake.ts:91](https://github.com/snroe/snet-utils/blob/main
 
 > `private` `readonly` **timestampLeftShift**: `number`
 
-Defined in: [uuid/snowflake.ts:87](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L87)
+Defined in: [uuid/snowflake.ts:86](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L86)
 
-时间截向左移22位(5+5+12)
+The time is shifted left by 22 bits (5+5+12)
 
 ***
 
@@ -201,7 +201,7 @@ Defined in: [uuid/snowflake.ts:87](https://github.com/snroe/snet-utils/blob/main
 
 > `private` `readonly` **totalBits**: `BigInt`
 
-Defined in: [uuid/snowflake.ts:31](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L31)
+Defined in: [uuid/snowflake.ts:30](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L30)
 
 ***
 
@@ -209,9 +209,9 @@ Defined in: [uuid/snowflake.ts:31](https://github.com/snroe/snet-utils/blob/main
 
 > `private` **workerId**: `number` = `1`
 
-Defined in: [uuid/snowflake.ts:53](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L53)
+Defined in: [uuid/snowflake.ts:52](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L52)
 
-工作机器ID(0~31)
+Work machine ID (0~31)
 
 ***
 
@@ -219,9 +219,9 @@ Defined in: [uuid/snowflake.ts:53](https://github.com/snroe/snet-utils/blob/main
 
 > `private` `readonly` **workerIdBits**: `number` = `5`
 
-Defined in: [uuid/snowflake.ts:36](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L36)
+Defined in: [uuid/snowflake.ts:35](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L35)
 
-机器id所占的位数
+The number of bits occupied by the machine ID
 
 ***
 
@@ -229,9 +229,9 @@ Defined in: [uuid/snowflake.ts:36](https://github.com/snroe/snet-utils/blob/main
 
 > `private` `readonly` **workerIdShift**: `number`
 
-Defined in: [uuid/snowflake.ts:79](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L79)
+Defined in: [uuid/snowflake.ts:78](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L78)
 
-机器ID向左移12位
+The machine ID shifts left by 12 bits.
 
 ## Methods
 
@@ -239,7 +239,7 @@ Defined in: [uuid/snowflake.ts:79](https://github.com/snroe/snet-utils/blob/main
 
 > **nextId**(): `bigint`
 
-Defined in: [uuid/snowflake.ts:140](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L140)
+Defined in: [uuid/snowflake.ts:139](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L139)
 
 Generate the next ID
 
@@ -298,6 +298,7 @@ Analysis results with:
 ```ts
 const uuid = (69715707826409472n).toBigInt();
 const parsed = snowflake.parseId(uuid);
+
 console.log('Parsed ID:', parsed);
 // Parsed ID:
 // {
@@ -314,7 +315,7 @@ console.log('Parsed ID:', parsed);
 
 > `private` **tilNextMillis**(`lastTimestamp`): `number`
 
-Defined in: [uuid/snowflake.ts:128](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L128)
+Defined in: [uuid/snowflake.ts:127](https://github.com/snroe/snet-utils/blob/main/src/modules/uuid/snowflake.ts#L127)
 
 Block until the next millisecond,
 until a new timestamp is obtained.

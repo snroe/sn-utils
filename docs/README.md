@@ -1,4 +1,4 @@
-**@selize/utils v0.1.16**
+**@selize/utils**
 
 ***
 

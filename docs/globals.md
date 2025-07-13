@@ -1,8 +1,8 @@
-[**@selize/utils v0.1.16**](README.md)
+[**@selize/utils**](README.md)
 
 ***
 
-# @selize/utils v0.1.16
+# @selize/utils
 
 ## Classes
 
