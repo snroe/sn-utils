@@ -6,9 +6,9 @@
 
 # Function: deepFreeze()
 
-> **deepFreeze**\<`T`\>(`obj`): `Readonly`\<`T`\>
+> **deepFreeze**\<`T`\>(`obj`): [`DeepReadonly`](../type-aliases/DeepReadonly.md)\<`T`\>
 
-Defined in: [deepFreeze.ts:29](https://github.com/snroe/snet-utils/blob/main/src/modules/deepFreeze.ts#L29)
+Defined in: [deepFreeze.ts:41](https://github.com/snroe/snet-utils/blob/main/src/modules/deepFreeze.ts#L41)
 
 Deep freeze an object, making it and its nested objects immutable.
 
@@ -29,7 +29,7 @@ The object to be deeply frozen is expected to be a key-value pair object,
 
 ## Returns
 
-`Readonly`\<`T`\>
+[`DeepReadonly`](../type-aliases/DeepReadonly.md)\<`T`\>
 
 Return the object after deep freezing, keeping the same type.
 
@@ -43,19 +43,14 @@ This function performs a deep freeze on the object and all its nested properties
 ```ts
 import { deepFreeze } from '@selize/utils';
 
-const obj = { a: 1, b: { c: 2 } };
+const obj = { 
+ list: [1, 2, { nested: new Set([3, 4]) }],
+ meta: new Map([['version', 1]]),
+};
 const frozen = deepFreeze(obj);
-console.log("frozen: ", frozen);
-// Output:
-// {
-//   a: 1,
-//   b: {
-//     c: 2
-//   }
 
-obj.a = 2;
-// Output:
-// TypeError: Cannot assign to read only property 'a' of object '#<Object>'
+frozen.list[2].nested.add(5); // Output: TypeError: Cannot modify a frozen object
+frozen.meta.set('version', 2); // Output: TypeError: Cannot modify a frozen object
 ```
 
 ## See
