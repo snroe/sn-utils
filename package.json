@@ -22,7 +22,7 @@
   "type": "module",
   "types": "./lib/index.d.ts",
   "scripts": {
-    "build": "rimraf lib && bun run check && bun run -c=bunfig.toml build.ts && bun run build:type",
+    "build": "bun run -c=bunfig.toml build.ts && bun run build:type",
     "build:type": "tsc --emitDeclarationOnly --outDir lib",
     "check": "tsc --noEmit",
     "clean": "rimraf lib node_modules/.tmp",
